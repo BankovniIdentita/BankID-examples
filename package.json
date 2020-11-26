@@ -1,0 +1,12 @@
+{
+  "name": "snippets",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@git.bankid:dev-portal/snippets.git",
+  "author": "Jan Kelin <jan.kelin@applifting.cz>",
+  "license": "MIT",
+  "dependencies": {
+    "passport": "^0.4.1",
+    "passport-openid": "^0.4.0"
+  }
+}
