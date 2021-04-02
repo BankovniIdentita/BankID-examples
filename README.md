@@ -1,6 +1,6 @@
 # Czech BankID examples
 
-This project is devoted to code examples for integration on 
+This project is dedicated to code examples for integration on 
 the [Czech Banking Identity](https://www.bankid.cz) solution (Czech BankID). 
 Samples can be tested directly against the Sandbox, which is available 
 through the BankID [Developer Portal](https://developer.bankid.cz).
