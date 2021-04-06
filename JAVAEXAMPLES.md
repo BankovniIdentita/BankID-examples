@@ -176,7 +176,7 @@ import java.net.URI;
         Secret clientSecret = new Secret(clintSecretStr);
         ClientAuthentication clientAuth = new ClientSecretPost(clientId, clientSecret);
     
-        //Create token endpoint URI and make the token request
+        // Create token endpoint URI and make the token request
         URI tokenEndpointURI = new URI(tokenEndpoint);
         TokenRequest request = new TokenRequest(tokenEndpointURI, clientAuth, codeGrant);
     
@@ -303,7 +303,10 @@ import java.net.URI;
         if (profileResponse.getStatusCode() != 200) {
     
             // Convert json to IdentifyAML product (from BankID repository)
-            IdentifyAML amlProduct = gson.fromJson(profileResponse.getContentAsJSONObject().toJSONString(), IdentifyAML.class);
+            IdentifyAML amlProduct = gson.fromJson(
+                    profileResponse.getContentAsJSONObject().toJSONString(), 
+                    IdentifyAML.class
+            );
     
             // Get name from users data
             String userName = amlProduct.getFamily_name();

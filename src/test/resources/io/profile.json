@@ -1,0 +1,87 @@
+{
+  "sub": "23f1ac00-5d54-4169-a288-794ae2ead0c4",
+  "txn": "6941683f-c6ee-410c-add0-d52d63091069:openid:profile.name:profile.addresses",
+  "verified_claims": {
+    "verification": {
+      "trust_framework": "cz_aml",
+      "time": null,
+      "verification_process": "45244782"
+    },
+    "claims": {
+      "given_name": "Jan",
+      "family_name": "Novák",
+      "gender": "male",
+      "birthdate": "1970-08-01",
+      "maritalstatus": "MARRIED",
+      "addresses": [
+        {
+          "type": "PERMANENT_RESIDENCE",
+          "street": "Olbrachtova",
+          "buildingapartment": "1929",
+          "streetnumber": "62",
+          "city": "Praha",
+          "zipcode": "14000",
+          "country": "CZ"
+        }
+      ],
+      "idcards": [
+        {
+          "type": "ID",
+          "description": "Občanský průkaz",
+          "country": "CZ",
+          "number": "123456789",
+          "valid_to": "2023-10-11",
+          "issuer": "Úřad městské části Praha 4",
+          "issue_date": "2020-01-28"
+        }
+      ]
+    }
+  },
+  "given_name": "Jan",
+  "family_name": "Novák",
+  "gender": "male",
+  "birthdate": "1970-08-01",
+  "birthnumber": "7008010147",
+  "age": 50,
+  "majority": true,
+  "date_of_death": null,
+  "birthplace": "Praha 4",
+  "primary_nationality": "CZ",
+  "nationalities": [
+    "CZ",
+    "AT",
+    "SK"
+  ],
+  "maritalstatus": "MARRIED",
+  "email": "J.novak@email.com",
+  "phone_number": "+420123456789",
+  "pep": false,
+  "limited_legal_capacity": false,
+  "addresses": [
+    {
+      "type": "PERMANENT_RESIDENCE",
+      "street": "Olbrachtova",
+      "buildingapartment": "1929",
+      "streetnumber": "62",
+      "city": "Praha",
+      "zipcode": "14000",
+      "country": "CZ",
+      "ruian_reference": "186GF76"
+    }
+  ],
+  "idcards": [
+    {
+      "type": "ID",
+      "description": "Občanský průkaz",
+      "country": "CZ",
+      "number": "123456789",
+      "valid_to": "2023-10-11",
+      "issuer": "Úřad městské části Praha 4",
+      "issue_date": "2020-01-28"
+    }
+  ],
+  "paymentAccounts": [
+    "CZ0708000000001019382023"
+  ],
+  "updated_at": 1568188433000
+}

@@ -29,11 +29,12 @@ public class BankIDConfiguration {
 
     private void getConfiguration() {
 
-            // Create new issuer
-            Issuer issuer = new Issuer(bankIDIssuerURI);
+        // Create new issuer
+        Issuer issuer = new Issuer(bankIDIssuerURI);
 
-            // Request for configuration
-            OIDCProviderConfigurationRequest request = new OIDCProviderConfigurationRequest(issuer);
+        // Request for configuration
+        OIDCProviderConfigurationRequest request = new OIDCProviderConfigurationRequest(issuer);
+
         try {
             HTTPRequest httpRequest = request.toHTTPRequest();
 

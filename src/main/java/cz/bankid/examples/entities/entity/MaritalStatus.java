@@ -12,7 +12,7 @@ package cz.bankid.examples.entities.entity;
  * {@link SINGLE} - single status
  * {@link UNKNOWN} - unknown status
  */
-public enum Maritalstatus {
+public enum MaritalStatus {
 
     COHABITATION,
     MARRIED,

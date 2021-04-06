@@ -15,8 +15,6 @@ import java.net.URISyntaxException;
  * Example of how to get user data from the BankID UserInfo and Profile API. The example assumes
  * that the end-user was before the call properly authenticated itself, and the code was exchanged
  * for a token. The range of data provided corresponds to the scopes used.
- *
- *
  */
 public class UserData {
 

@@ -10,8 +10,7 @@ import cz.bankid.examples.entities.VerifiedClaims;
  *
  *          Product
  *             |
- *             -> Conect
- *
+ *             -> Connect
  *
  */
 public class Connect extends ConnectClaims implements IProduct {

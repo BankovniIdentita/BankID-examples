@@ -17,7 +17,6 @@ import java.net.URISyntaxException;
  * The example uses values and parameters relevant to the BankID service. We recommend obtaining the URL for the correct
  * auth endpoint call from the OIDC configuration endpoint BankID. We also recommend that you verify supported scopes and
  * grants against the configuration.
- *
  */
 public class LoginURL {
 
@@ -42,7 +41,8 @@ public class LoginURL {
                     new ResponseType("code"),
                     scope,
                     clientId,
-                    new URI(redirectURI));
+                    new URI(redirectURI)
+            );
 
             // Set the auth endpoint URI
             authBuilder.endpointURI(new URI(authorizationEndpoint));

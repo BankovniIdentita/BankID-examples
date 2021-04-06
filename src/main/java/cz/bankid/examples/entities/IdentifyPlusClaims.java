@@ -1,7 +1,7 @@
 package cz.bankid.examples.entities;
 
 import cz.bankid.examples.entities.entity.IDCard;
-import cz.bankid.examples.entities.entity.Maritalstatus;
+import cz.bankid.examples.entities.entity.MaritalStatus;
 
 import java.util.List;
 /**
@@ -38,7 +38,7 @@ public class IdentifyPlusClaims extends IdentifyClaims {
      * SINGLE - single status
      * UNKNOWN - unknown status
      */
-    Maritalstatus maritalstatus;
+    MaritalStatus maritalstatus;
     /**
      *
      * User's id card/s.
@@ -88,11 +88,11 @@ public class IdentifyPlusClaims extends IdentifyClaims {
         this.nationalities = nationalities;
     }
 
-    public Maritalstatus getMaritalstatus() {
+    public MaritalStatus getMaritalstatus() {
         return maritalstatus;
     }
 
-    public void setMaritalstatus(Maritalstatus maritalstatus) {
+    public void setMaritalstatus(MaritalStatus maritalstatus) {
         this.maritalstatus = maritalstatus;
     }
 

@@ -1,0 +1,32 @@
+{
+  "sub": "23f1ac00-5d54-4169-a288-794ae2ead0c4",
+  "txn": "6941683f-c6ee-410c-add0-d52d63091069:openid:profile.name:profile.gender",
+  "verified_claims": {
+    "verification": {
+      "trust_framework": "cz_aml",
+      "time": {},
+      "verification_process": "45244782"
+    },
+    "claims": {
+      "name": "Jan Novák",
+      "given_name": "Jan",
+      "family_name": "Novák",
+      "gender": "male",
+      "birthdate": "1970-08-01"
+    }
+  },
+  "name": "Jan Novák",
+  "given_name": "Jan",
+  "family_name": "Novák",
+  "gender": "male",
+  "birthdate": "1970-08-01",
+  "nickname": "Fantomas",
+  "preferred_username": "JanN",
+  "email": "j.novak@email.com",
+  "email_verified": false,
+  "zoneinfo": "Europe/Prague",
+  "locale": "cs_CZ",
+  "phone_number": "420123456789",
+  "phone_number_verified": true,
+  "updated_at": 1568188433000
+}

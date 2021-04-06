@@ -12,7 +12,6 @@ import cz.bankid.examples.entities.VerifiedClaims;
  *             |
  *             -> Identify (Basic)
  *
- *
  */
 public class Identify extends IdentifyClaims implements IProduct {
 

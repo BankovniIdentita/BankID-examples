@@ -2,7 +2,6 @@ package cz.bankid.examples.entities.entity;
 
 /**
  * User's address
- *
  */
 public class Address {
     /**

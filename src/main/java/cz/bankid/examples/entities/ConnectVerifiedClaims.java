@@ -1,7 +1,6 @@
 package cz.bankid.examples.entities;
 
 /**
- *
  * By this element BankID wants to ensure that RPs cannot mix up verified and unverified Claims and incidentally
  * process unverified Claims as verified Claims.
  */

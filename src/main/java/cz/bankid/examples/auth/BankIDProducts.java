@@ -23,7 +23,6 @@ import java.net.URISyntaxException;
  * As object classes of BankID products for this example, it is possible to use examples of java classes
  * in the public BankID repository here. The structure of all essential BankID products
  * (Connect, Identify, Identify Plus and Identify AML) is available in the repository.
- *
  */
 public class BankIDProducts {
 
@@ -47,7 +46,10 @@ public class BankIDProducts {
             if (profileResponse.getStatusCode() != 200) {
 
                 // Convert json to IdentifyAML product (from BankID repository)
-                IdentifyAML amlProduct = gson.fromJson(profileResponse.getContentAsJSONObject().toJSONString(), IdentifyAML.class);
+                IdentifyAML amlProduct = gson.fromJson(
+                        profileResponse.getContentAsJSONObject().toJSONString(),
+                        IdentifyAML.class
+                );
 
                 // Get name from users data
                 String userName = amlProduct.getFamily_name();

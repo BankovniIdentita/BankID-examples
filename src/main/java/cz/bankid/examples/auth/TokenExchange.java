@@ -22,7 +22,6 @@ import java.net.URISyntaxException;
  * The issuance of a `refresh_token` is conditional on the registration of a refresh token grant at the Developer Portal for
  * application and the use of the scope `offline_access` in the /auth request. The example assumes that the application
  * already has `code` obtained from a callback call to a redirect URI.
- *
  */
 public class TokenExchange {
 
@@ -55,7 +54,7 @@ public class TokenExchange {
             Secret clientSecret = new Secret(clintSecretStr);
             ClientAuthentication clientAuth = new ClientSecretPost(clientId, clientSecret);
 
-            //Create token endpoint URI and make the token request
+            // Create token endpoint URI and make the token request
             URI tokenEndpointURI = new URI(tokenEndpoint);
             TokenRequest request = new TokenRequest(tokenEndpointURI, clientAuth, codeGrant);
 
