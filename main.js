@@ -56,12 +56,11 @@ const codeBlock = document.querySelector('code');
 // Set Userinfo / Profile URL
 const userInfoEndpoint = 'https://oidc.sandbox.bankid.cz/userinfo';
 
-// Obtain access_token from fragment
-
+// Obtain fragment containing access_token
 const hash = window.location.hash.substr(1);
 const fragmentArr = hash.split('&');
 
-// Transform fragment data into key value pairs
+// Transform fragment data into key value pairs for easier manipulation
 const fragmentData = Object.fromEntries(
   fragmentArr.map((frag) => {
     const [key, value] = frag.split('=');
