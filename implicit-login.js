@@ -28,10 +28,9 @@ const scopes = [
 // Query parameters for the auth call
 const authUriParams = {
   client_id: 'Your client ID generated on the development portal',
-  redirect_uri: 'Redirect URI to your application',
   state: 'Optional state value you want to pass on',
   scope: scopes.join(' '),
-  // reponse_type 'token' for implicit flow, 'code' for authorization code flow
+  redirect_uri: 'Redirect URI to your application',
   response_type: 'token',
 };
 
