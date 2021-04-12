@@ -45,7 +45,7 @@ const authUri = `${authEndpoint}?${uriParams}`;
 // Get the login button
 const loginButton = document.querySelector('#login');
 
-// Append the authUri to the href attribute
+// Change login button href to authUri
 loginButton.href = authUri;
 
 /* CALLING USERINFO/PROFILE EXAMPLE */
@@ -56,22 +56,15 @@ const codeBlock = document.querySelector('code');
 // Set Userinfo / Profile URL
 const userInfoEndpoint = 'https://oidc.sandbox.bankid.cz/userinfo';
 
-// Obtain fragment containing access_token
-const hash = window.location.hash.substr(1);
-const fragmentArr = hash.split('&');
-
-// Transform fragment data into key value pairs for easier manipulation
-const fragmentData = Object.fromEntries(
-  fragmentArr.map((frag) => {
-    const [key, value] = frag.split('=');
-    return [key, value];
-  })
-);
+// Obtain access_token from URL fragment
+const hash = window.location.hash.substring(1);
+const params = new URLSearchParams(hash);
+const accessToken = params.get('access_token');
 
 const fetchUserinfo = async () => {
   // Pass access token to authorization header
   const headers = {
-    Authorization: 'Bearer ' + fragmentData['access_token'],
+    Authorization: 'Bearer ' + accessToken,
   };
 
   try {
