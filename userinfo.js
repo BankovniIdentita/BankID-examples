@@ -1,7 +1,5 @@
 /* CALLING USERINFO/PROFILE EXAMPLE */
 
-import axios from 'axios';
-
 // Set Userinfo / Profile URL
 const userInfoEndpoint = 'https://oidc.sandbox.bankid.cz/userinfo';
 
@@ -15,10 +13,10 @@ const fetchUserinfo = async () => {
   };
 
   try {
-    const res = await axios(userInfoEndpoint, { headers });
-
-    // Retrieved userinfo / profile data
-    console.log(res.data);
+    const res = await fetch(userInfoEndpoint, { headers });
+    // Retrieved userinfo / profile data in object format
+    const json = await res.json();
+    console.log(json);
   } catch (ex) {
     // handle errors
     console.error(ex);
