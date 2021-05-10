@@ -7,7 +7,7 @@
   "type": "module",
   "scripts": {
     "start:login": "node login.js",
-    "start:kyc": "node kyc.js"
+    "start:identify": "node identify.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
