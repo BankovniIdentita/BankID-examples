@@ -3,35 +3,19 @@
 // BankID sandbox auth endpoint
 const authEndpoint = 'https://oidc.sandbox.bankid.cz/auth';
 
+// Set Userinfo / Profile URL
+const userInfoEndpoint = 'https://oidc.sandbox.bankid.cz/userinfo';
+
 // Configuration of scopes from BankID dev portal
-const scopes = [
-  'openid',
-  'profile.birthnumber',
-  'profile.phonenumber',
-  'profile.zoneinfo',
-  'profile.gender',
-  'profile.titles',
-  'profile.name',
-  'profile.birthplaceNationality',
-  'profile.locale',
-  'profile.idcards',
-  'profile.maritalstatus',
-  'profile.verification',
-  'profile.legalstatus',
-  'profile.email',
-  'profile.paymentAccounts',
-  'profile.addresses',
-  'profile.birthdate',
-  'profile.updatedat',
-];
+const scopes = ['openid', 'profile.email'];
 
 // Query parameters for the auth call
 const authUriParams = {
-  client_id: 'Your client ID generated on the development portal',
+  client_id: '0c53196f-fdba-4d27-84c0-a74e00e775b6',
   state: 'Optional state value you want to pass on',
   scope: scopes.join(' '),
   // Redirect URI to your application
-  redirect_uri: 'http://localhost:5500',
+  redirect_uri: 'http://localhost:5000',
   // reponse_type 'token' for implicit flow
   response_type: 'token',
 };
@@ -52,9 +36,6 @@ loginButton.href = authUri;
 
 // Get the code block in html
 const codeBlock = document.querySelector('code');
-
-// Set Userinfo / Profile URL
-const userInfoEndpoint = 'https://oidc.sandbox.bankid.cz/userinfo';
 
 // Obtain access_token from URL fragment
 const hash = window.location.hash.substring(1);
