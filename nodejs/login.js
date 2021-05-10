@@ -1,20 +1,21 @@
 import express from 'express';
 import passport from 'passport';
 import session from 'express-session';
+import jwt from 'jsonwebtoken';
 import { Strategy, Issuer } from 'openid-client';
 
-const CLIENT_ID = 'ff5f4db0-e950-4722-abda-30c31a0a4bf0';
+const CLIENT_ID = '72fda011-0479-4a4c-9fff-0a6c7f584e1e';
 const CLIENT_SECRET =
-  'ECBEJf19p1z18ERYLEdRDl--tVgx0d8o7xT5xJ275vaQ84eN3Y5IRGrWnrTQLMHJ9G-UI03tmfuTMWSOO-L-KQ';
+  'TsGlMQro488YSwc0h9NWydZAqHir13PPW2cDMEQBcLgFvaGOnXzOt9MWBhTDBEU7PaXtn9H7Y0QHdcVZolJOsg';
 const SCOPE = 'openid';
 
-const bankidIssuer = await Issuer.discover(
-  'https://core-idp.staging.ci.bankd.cz/'
-);
+const bankidIssuer = await Issuer.discover('https://oidc.sandbox.bankid.cz/');
 const bankidClient = new bankidIssuer.Client({
   client_id: CLIENT_ID,
   client_secret: CLIENT_SECRET,
   redirect_uris: ['http://localhost:3000/'],
+  response_types: ['code'],
+  id_token_signed_response_alg: 'PS512',
 });
 
 passport.use(
@@ -23,16 +24,12 @@ passport.use(
     {
       client: bankidClient,
       params: {
-        scope: 'openid profile.email',
+        scope: SCOPE,
       },
     },
     async (tokenSet, done) => {
-      console.warn(tokenSet, done);
-
-      // this throws 500
-      const userinfo = await bankidClient.userinfo(tokenSet.access_token);
-      console.warn(bankidIssuer);
-      return done(null, userinfo);
+      const idToken = jwt.decode(tokenSet.id_token);
+      return done(null, { sub: idToken.sub });
     }
   )
 );
@@ -41,7 +38,6 @@ passport.serializeUser((user, done) => done(null, user));
 passport.deserializeUser((user, done) => done(null, user));
 
 const app = express();
-
 app.use(
   session({
     secret: 'secret',
@@ -52,6 +48,6 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/', passport.authenticate('bankid'), (req, res) => res.send(req.user));
+app.get('/', passport.authenticate('bankid'), (req, res) => res.json(req.user));
 
-app.listen(3000);
+app.listen(3000, () => console.info('Listening on port 3000'));

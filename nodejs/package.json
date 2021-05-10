@@ -1,20 +1,21 @@
 {
   "name": "snippets",
   "version": "1.0.0",
-  "main": "index.js",
-  "repository": "git@git.bankid:dev-portal/snippets.git",
-  "author": "Jan Kelin <jan.kelin@applifting.cz>",
+  "repository": "git@github.com:BankovniIdentita/BankID-examples.git",
+  "author": "Jan Kelin <jan.kelin@bankid.cz>",
   "license": "MIT",
   "type": "module",
+  "scripts": {
+    "start:login": "node login.js",
+    "start:kyc": "node kyc.js"
+  },
   "dependencies": {
-    "axios": "^0.21.0",
+    "axios": "^0.21.1",
     "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "jsonwebtoken": "^8.5.1",
-    "openid-client": "^4.2.2",
-    "passport": "^0.4.1",
-    "passport-openid": "^0.4.0",
-    "qs": "^6.9.4"
+    "openid-client": "^4.7.3",
+    "passport": "^0.4.1"
   }
 }
