@@ -19,7 +19,8 @@ repository.
 
 **Available examples:**
 
-- [Java](/java) discovery, authentication, token exchange, and data transfer
-- [Browser JavaScript](/javascript) Simple Implicit Flow using in-browser JavaScript. This flow uses Connect to login and later calls `/userinfo` EndPoint to acquire email of the end-user.
-- [NodeJS](/nodejs) Code Flow using server-side NodeJS. These examples show Connect as well as Identify usage with popular NodeJS Express framework.
 - [CURL](/curl) Bare-bones shell example which uses CURL and other command line tools
+- [Java](/java) Discovery, authentication, token exchange, and data transfer
+- [ASP.NET Core](/aspnet) Code Flow using BankID as well as Profile and UserInfo calls
+- [NodeJS](/nodejs) Code Flow using server-side NodeJS. These examples show Connect as well as Identify usage with popular NodeJS Express framework.
+- [Browser JavaScript](/javascript) Simple Implicit Flow using in-browser JavaScript. This flow uses Connect to login and later calls `/userinfo` EndPoint to acquire email of the end-user.
