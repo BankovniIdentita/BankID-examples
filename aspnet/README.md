@@ -1,4 +1,4 @@
-# BankID CURL examples
+# BankID ASP.NET Core examples
 
 This is an example of using [BankID](https://developer.bankid.cz/) with [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-5.0) to achieve Connect (login), and Identify (userinfo and profile) using a code grant.
 
