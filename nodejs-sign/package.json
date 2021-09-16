@@ -1,0 +1,17 @@
+{
+  "name": "nodejs-sign",
+  "version": "1.0.0",
+  "author": "Daniel Kessl <daniel.kessl@bankid.cz>",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start:sign": "node sign.js"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "jose": "^3.17.0",
+    "openid-client": "^4.7.3",
+    "qs": "^6.10.1"
+  }
+}
