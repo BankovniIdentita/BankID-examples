@@ -72,7 +72,7 @@ export const client = {
       const key = data.keys?.find((key) => key.use === 'enc')
       return key
     } catch (error) {
-      return { error, response: error.response?.data }
+      return { error: error.response?.data }
     }
   },
 
@@ -88,9 +88,9 @@ export const client = {
           'Content-Type': 'application/jwe',
         },
       })
-      return data
+      return { data }
     } catch (error) {
-      return { error, response: error.response?.data }
+      return { error: error.response?.data }
     }
   },
 
@@ -107,7 +107,7 @@ export const client = {
     try {
       await Axios.post(uploadUri, data, { headers: data.getHeaders() })
     } catch (error) {
-      return { error, response: error.response?.data }
+      return { error: error.response?.data }
     }
   },
 
@@ -145,9 +145,9 @@ export const client = {
 
     try {
       const { data } = await Axios.post(bankidIssuer.token_endpoint, qs.stringify(codeRequest))
-      return data
+      return { data }
     } catch (error) {
-      return { error, response: error.response?.data }
+      return { error: error.response?.data }
     }
   },
 }

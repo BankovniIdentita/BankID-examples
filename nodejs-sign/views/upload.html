@@ -18,8 +18,12 @@
     <pre><%= uploadUri %></pre>
 
     <h2>Upload response</h2>
-    <pre><%= !response ? '200 OK' : JSON.stringify(response, null, 2) %></pre>
+    <pre><%= error ? JSON.stringify(error, null, 2) : '200 OK' %></pre>
 
-    Continue to <a href="<%= authUri %>">authorization</a>
+    <% if (!error || error.code === 'FILE_ALREADY_UPLOADED') { %>
+      Continue to <a href="<%= authUri %>">authorization</a>
+    <% } else { %>
+      <a href="/ros">Start over</a>
+    <% } %>
   </body>
 </html>

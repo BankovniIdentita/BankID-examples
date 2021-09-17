@@ -28,10 +28,9 @@ app.get('/ros', async (req, res) => {
   const requestObject = getRequestObject()
   const signedRequestObject = await signJwt(requestObject)
   const encryptedRequestObject = await encryptJwt(signedRequestObject, await client.encryptionKey())
-  const response = await client.ros(encryptedRequestObject)
-  const uuid = response.upload_uri?.split('/').pop()
-  const requestUri = response.request_uri
-  res.render('ros.html', { requestObject, encryptedRequestObject, response, uuid, requestUri })
+  const { data, error } = await client.ros(encryptedRequestObject)
+  const uuid = data?.upload_uri?.split('/').pop()
+  res.render('ros.html', { requestObject, encryptedRequestObject, data, error, uuid })
 })
 
 // Uploads file to be signed
@@ -39,21 +38,21 @@ app.get('/upload/:uri/:uuid', async (req, res) => {
   const uploadUri = `https://api.bankid.cz/dev-portal-fileservice/api/v1/files/prepared/${req.params.uuid}`
   const response = await client.upload(uploadUri)
   const authUri = client.authUri(req.params.uri)
-  res.render('upload.html', { uploadUri, requestUri: req.params.uri, response, authUri })
+  res.render('upload.html', { uploadUri, requestUri: req.params.uri, error: response?.error, authUri })
 })
 
 // Callback EP used as redirect URI
 // Exchanges authorization code and verifies tokens
 app.get('/callback', async (req, res) => {
   const code = req.query.code
-  const tokens = await client.token(code)
+  const { data, error } = await client.token(code)
 
-  if (tokens.error) {
-    return res.render('error.html', { error: tokens.response })
+  if (error) {
+    return res.render('error.html', { error })
   }
 
-  const verifiedIdToken = await verifyJwt(tokens.id_token)
-  res.render('callback.html', { code, tokens, verifiedIdToken })
+  const verifiedIdToken = await verifyJwt(data.id_token)
+  res.render('callback.html', { code, tokens: data, verifiedIdToken })
 })
 
 app.listen(3000, () =>

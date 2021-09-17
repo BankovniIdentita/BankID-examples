@@ -9,7 +9,11 @@
   <body>
     <nav>
       <a href="/ros" class="active">Request object signature</a>&rsaquo;
-      <a href="/upload/<%= requestUri %>/<%= uuid %>">Upload file</a>&rsaquo;
+      <% if (data) { %>
+        <a href="/upload/<%= data.request_uri %>/<%= uuid %>">Upload file</a>&rsaquo;
+      <% } else { %>
+        <a>Upload file</a>&rsaquo;
+      <% } %>
       <a>Authorize</a>&rsaquo;
       <a>Callback</a>
     </nav>
@@ -21,8 +25,12 @@
     <pre><a href="https://jwt.io/#debugger-io?token=<%= encryptedRequestObject %>" target="_blank"><%= encryptedRequestObject %></a></pre>
 
     <h2><code>/ros</code> response</h2>
-    <pre><%= JSON.stringify(response, null, 2) %></pre>
+    <pre><%= JSON.stringify(data ?? error, null, 2) %></pre>
 
-    Continue to <a href="/upload/<%= requestUri %>/<%= uuid %>">upload file</a>
+    <% if (data) { %>
+      Continue to <a href="/upload/<%= data.request_uri %>/<%= uuid %>">upload file</a>
+    <% } else { %>
+      <a href="/ros">Start over</a>
+    <% } %>
   </body>
 </html>
