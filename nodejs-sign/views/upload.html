@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>BankID sign example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/main.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav>
+      <a href="/ros">Request object signature</a>&rsaquo;
+      <a class="active">Upload file</a>&rsaquo;
+      <a href="<%= authUri %>">Authorize</a>&rsaquo;
+      <a>Callback</a>
+    </nav>
+
+    <h2>Upload URI</h2>
+    <pre><%= uploadUri %></pre>
+
+    <h2>Upload response</h2>
+    <pre><%= !response ? '200 OK' : JSON.stringify(response, null, 2) %></pre>
+
+    Continue to <a href="<%= authUri %>">authorization</a>
+  </body>
+</html>

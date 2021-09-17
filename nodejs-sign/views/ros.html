@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>BankID sign example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/main.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav>
+      <a href="/ros" class="active">Request object signature</a>&rsaquo;
+      <a href="/upload/<%= requestUri %>/<%= uuid %>">Upload file</a>&rsaquo;
+      <a>Authorize</a>&rsaquo;
+      <a>Callback</a>
+    </nav>
+
+    <h2>Request object</h2>
+    <pre><%= JSON.stringify(requestObject, null, 2) %></pre>
+
+    <h2>Signed & encrypted request object</h2>
+    <pre><a href="https://jwt.io/#debugger-io?token=<%= encryptedRequestObject %>" target="_blank"><%= encryptedRequestObject %></a></pre>
+
+    <h2><code>/ros</code> response</h2>
+    <pre><%= JSON.stringify(response, null, 2) %></pre>
+
+    Continue to <a href="/upload/<%= requestUri %>/<%= uuid %>">upload file</a>
+  </body>
+</html>

@@ -12,7 +12,6 @@ import {
   FILE_PATH,
   REDIRECT_URI,
 } from './config.js'
-import { encryptJwt, signJwt, verifyJwt } from './jwt.js'
 
 // Parse OpenID configuration using openid-client
 const bankidIssuer = await Issuer.discover(BANKID_ISSUER)
@@ -79,18 +78,12 @@ export const client = {
 
   /**
    * Calls BankID ROS EP to initiated sign flow
-   * @params requestObject Request object (https://developer.bankid.cz/docs/api/bankid-for-sep#operations-Sign-post_ros)
+   * @params requestObject Signed & encrypted equest object (https://developer.bankid.cz/docs/api/bankid-for-sep#operations-Sign-post_ros)
    * @returns              ROS response with request_uri, upload_uri & expiration | error object
    */
   ros: async function (requestObject) {
-    const signedRequestObject = await signJwt(requestObject)
-    const encryptedRequestObject = await encryptJwt(
-      signedRequestObject,
-      await client.encryptionKey()
-    )
-
     try {
-      const { data } = await Axios.post(bankidIssuer.ros_endpoint, encryptedRequestObject, {
+      const { data } = await Axios.post(bankidIssuer.ros_endpoint, requestObject, {
         headers: {
           'Content-Type': 'application/jwe',
         },
@@ -139,7 +132,7 @@ export const client = {
   /**
    * Calls BankID token EP and exchanges authorization code for tokens
    * @param code Authorization code
-   * @returns    Verified & decoded ID token | error object
+   * @returns    Tokens | error object
    */
   token: async function (code) {
     const codeRequest = {
@@ -152,7 +145,7 @@ export const client = {
 
     try {
       const { data } = await Axios.post(bankidIssuer.token_endpoint, qs.stringify(codeRequest))
-      return verifyJwt(data.id_token)
+      return data
     } catch (error) {
       return { error, response: error.response?.data }
     }
