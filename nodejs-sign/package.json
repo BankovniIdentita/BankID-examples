@@ -5,13 +5,15 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start:sign": "node sign.js"
+    "start:sign": "node sign.js",
+    "generate:keys": "node scripts/genKeys.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
     "express": "^4.17.1",
     "jose": "^3.17.0",
     "openid-client": "^4.7.3",
-    "qs": "^6.10.1"
+    "qs": "^6.10.1",
+    "uuid": "^8.3.2"
   }
 }
