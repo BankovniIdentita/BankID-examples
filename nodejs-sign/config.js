@@ -10,3 +10,7 @@ export const REDIRECT_URI = 'http://localhost:3000/callback'
 // change issuer to https://oidc.bankid.cz/ for production
 export const BANKID_ISSUER = 'https://oidc.sandbox.bankid.cz/'
 export const BANKID_JWKS = `${BANKID_ISSUER}.well-known/jwks`
+
+// other configuration values
+export const FILENAME = 'test.pdf'
+export const FILE_PATH = `./files/${FILENAME}`

@@ -18,8 +18,11 @@ app.get('/jwks', async (req, res) => res.json(jwks))
 // Calls request object signature EP
 app.get('/ros', async (req, res) => res.json(await client.ros()))
 
+// Uploads file to be signed
+app.get('/upload/:uri', async (req, res) => res.json(await client.upload(req.params.uri)))
+
 // Starts BankID authorization flow by redirecting end user to authorization EP
-app.get('/', (req, res) => res.redirect(client.authUri))
+app.get('/auth/:uri', (req, res) => res.redirect(client.authUri(req.params.uri)))
 
 // Callback EP used as redirect URI
 // Exchanges authorization code and verifies tokens

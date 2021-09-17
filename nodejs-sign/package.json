@@ -11,6 +11,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "express": "^4.17.1",
+    "form-data": "^4.0.0",
     "jose": "^3.17.0",
     "openid-client": "^4.7.3",
     "qs": "^6.10.1",
