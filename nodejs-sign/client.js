@@ -47,16 +47,16 @@ export const getRequestObject = () => ({
       document_author: 'Daniel Kessl',
       document_size: 9785,
       document_pages: 1,
-      document_uri: 'http://něco', // TODO verify if this is needed
+      document_uri: 'http://localhost:3000/files/test.pdf',
       document_created: '2018-12-29T10:46:53+01:00',
       document_read_by_enduser: true,
       sign_area: {
         page: 0,
-        'x-coordinate': 100,
-        'y-coordinate': 200,
-        'x-dist': 20,
-        'y-dist': 15,
-      },
+        'x-coordinate': 350,
+        'y-coordinate': 150,
+        'x-dist': 140,
+        'y-dist': 50,
+      }
     },
   },
 })
@@ -77,8 +77,8 @@ export const client = {
   },
 
   /**
-   * Calls BankID ROS EP to initiated sign flow
-   * @params requestObject Signed & encrypted equest object (https://developer.bankid.cz/docs/api/bankid-for-sep#operations-Sign-post_ros)
+   * Calls BankID ROS EP to initiate sign flow
+   * @params requestObject Signed & encrypted request object (https://developer.bankid.cz/docs/api/bankid-for-sep#operations-Sign-post_ros)
    * @returns              ROS response with request_uri, upload_uri & expiration | error object
    */
   ros: async function (requestObject) {

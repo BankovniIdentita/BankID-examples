@@ -8,6 +8,10 @@ This is an example of using [BankID](https://developer.bankid.cz/) with server-s
 - Ensure you have [Yarn](https://yarnpkg.com/) installed (can be substituted with NPM)
 - Run `yarn` to install dependencies
 - Run `yarn generate:keys` to generate a key pair to sign request object with
+- Create an app on [BankID developer portal](https://developer.bankid.cz) and configure its sandbox:
+  - Allow redirect URI `http://localhost:3000/callback`
+  - Configure JWKS URI to contain generated public key (see below)
+- Add client ID and client secret from sandbox credentials in dev portal to `config.js`
 - Run `yarn start:sign` to start the example signing app
 
 ## Signing example

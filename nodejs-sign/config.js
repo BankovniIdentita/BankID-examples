@@ -11,6 +11,6 @@ export const REDIRECT_URI = 'http://localhost:3000/callback'
 export const BANKID_ISSUER = 'https://oidc.sandbox.bankid.cz/'
 export const BANKID_JWKS = `${BANKID_ISSUER}.well-known/jwks`
 
-// other configuration values
+// filename & path to file to be signed
 export const FILENAME = 'test.pdf'
 export const FILE_PATH = `./files/${FILENAME}`
