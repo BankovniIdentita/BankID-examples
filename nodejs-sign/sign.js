@@ -30,7 +30,8 @@ app.get('/ros', async (req, res) => {
   const encryptedRequestObject = await encryptJwt(signedRequestObject, await client.encryptionKey())
   const { data, error } = await client.ros(encryptedRequestObject)
   const uuid = data?.upload_uri?.split('/').pop()
-  res.render('ros.html', { requestObject, encryptedRequestObject, data, error, uuid })
+  const authUri = client.authUri(`${data?.request_uri}`)
+  res.render('ros.html', { requestObject, encryptedRequestObject, data, error, uuid, authUri })
 })
 
 // Uploads file to be signed
