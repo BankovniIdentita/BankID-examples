@@ -9,12 +9,18 @@
   <body>
     <nav>
       <a href="/ros" class="active">Request object signature</a>&rsaquo;
-      <% if (data) { %>
+      <% if (data?.upload_uri) { %>
         <a href="/upload/<%= data.request_uri %>/<%= uuid %>">Upload file</a>&rsaquo;
       <% } else { %>
-        <a>Upload file</a>&rsaquo;
+        <a><s>Upload file</s> (no file)</a>&rsaquo;
       <% } %>
-      <a>Authorize</a>&rsaquo;
+
+      <% if (!data?.upload_uri) { %>
+        <a href="<%= authUri %>">Authorize</a>&rsaquo;
+      <% } else { %>
+        <a>Authorize</a>&rsaquo;
+      <% } %>
+
       <a>Callback</a>
     </nav>
 
@@ -28,7 +34,11 @@
     <pre><%= JSON.stringify(data ?? error, null, 2) %></pre>
 
     <% if (data) { %>
-      Continue to <a href="/upload/<%= data.request_uri %>/<%= uuid %>">upload file</a>
+      <% if (data?.upload_uri) { %>
+        Continue to <a href="/upload/<%= data.request_uri %>/<%= uuid %>">upload file</a>
+      <% } else { %>
+        Continue to <a href="<%= authUri %>">Authorize</a>
+      <% } %>
     <% } else { %>
       <a href="/ros">Start over</a>
     <% } %>

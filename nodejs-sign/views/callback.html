@@ -28,7 +28,11 @@
     <pre><%= JSON.stringify(verifiedIdToken, null, 2) %></pre>
 
     <h2>Signed document</h2>
-    <a href="<%= verifiedIdToken?.structured_scope.documentObject.document_uri %>">Download</a>
+    <% if (verifiedIdToken?.structured_scope.documentObject) { %>
+      <a href="<%= verifiedIdToken?.structured_scope.documentObject.document_uri %>">Download</a>
+    <% } else { %>
+      There was no uploaded document.
+    <% } %>
 
     <p><a href="/ros">Start over</a></p>
   </body>
