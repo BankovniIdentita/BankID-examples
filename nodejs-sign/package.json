@@ -5,7 +5,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start:sign": "node sign.js",
+    "start:sign": "NODE_TLS_REJECT_UNAUTHORIZED=0 nodemon sign.js",
     "generate:keys": "node scripts/genKeys.js"
   },
   "dependencies": {
@@ -17,5 +17,8 @@
     "openid-client": "^4.7.3",
     "qs": "^6.10.1",
     "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
