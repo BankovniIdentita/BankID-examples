@@ -1,0 +1,52 @@
+{
+    "name": "fromjimmy/bankid-oidc-client",
+    "description": "OIDC client for BankId",
+    "autoload": {
+        "psr-4": {
+            "BankId\\OIDC\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Nikita Pavlovskiy",
+            "email": "nikita.pavlovskiy@fromjimmy.com"
+        },
+        {
+            "name": "Jakub Drabik",
+            "email": "jakub@fromjimmy.com"
+        }
+    ],
+    "scripts": {
+        "phpstan": "phpstan analyse --configuration ./config/phpstan.neon",
+        "cs": "php-cs-fixer fix --config ./config/.php-cs-fixer.php -v",
+        "cs-check": "php-cs-fixer fix --config ./config/.php-cs-fixer.php --dry-run --stop-on-violation --format=txt -v",
+        "test": "phpunit test",
+        "check": [
+            "@cs-check",
+            "@phpstan",
+            "@test"
+        ],
+        "start": "php -S localhost:3000 index.php",
+        "start:jwk": "php -S localhost:3001 index.php",
+        "start:ngrok": "ngrok http 3001"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.4",
+        "friendsofphp/php-cs-fixer": "^3.5",
+        "guzzlehttp/psr7": "^2.1",
+        "guzzlehttp/guzzle": "^7.4",
+        "phpunit/phpunit": "^9",
+        "ext-apcu": "*"
+    },
+    "require": {
+        "php": ">=8.1",
+        "ext-curl": "*",
+        "psr/http-client": "^1.0",
+        "psr/http-factory": "^1.0",
+        "web-token/jwt-easy": "^2.2",
+        "web-token/jwt-signature-algorithm-rsa": "^2.2",
+        "web-token/jwt-signature-algorithm-hmac": "^2.2",
+        "web-token/jwt-key-mgmt": "^2.2",
+        "psr/simple-cache": "^3.0"
+    }
+}
