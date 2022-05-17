@@ -30,6 +30,10 @@
     <h2>Signed document</h2>
     <% if (verifiedIdToken?.structured_scope.documentObject) { %>
       <a href="<%= verifiedIdToken?.structured_scope.documentObject.document_uri %>">Download</a>
+    <% } else if (verifiedIdToken?.structured_scope.documentObjects?.documents) { %>
+      <% for (const item of verifiedIdToken?.structured_scope.documentObjects?.documents) { %>
+        <a href="<%= item.document_uri %>">Download <%= item.document_title %></a>
+      <% } %>
     <% } else { %>
       There was no uploaded document.
     <% } %>

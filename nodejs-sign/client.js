@@ -3,63 +3,15 @@ import FormData from 'form-data'
 import { promises as fs } from 'fs'
 import { Issuer } from 'openid-client'
 import qs from 'qs'
-import { v4 } from 'uuid'
 import {
   BANKID_ISSUER,
   CLIENT_ID,
   CLIENT_SECRET,
-  FILENAME,
-  FILE_PATH,
   REDIRECT_URI,
 } from './config.js'
 
 // Parse OpenID configuration using openid-client
 const bankidIssuer = await Issuer.discover(BANKID_ISSUER)
-
-// Request object required by BankID to initiate sign flow
-// see https://developer.bankid.cz/docs/api/bankid-for-sep#operations-Sign-post_ros
-export const getRequestObject = () => ({
-  txn: v4(),
-  client_id: CLIENT_ID,
-  nonce: v4(),
-  state: v4(),
-  response_type: 'code',
-  max_age: 3600,
-  scope: 'openid',
-  structured_scope: {
-    signObject: {
-      fields: [
-        {
-          key: 'Marketing consent',
-          value: 'I consent to receive marketing materials',
-          priority: 1,
-        },
-      ],
-    },
-    // documentObject data must match metadata of file being signed
-    documentObject: {
-      document_id: 'ID123456789',
-      document_hash: '92c9609710f188c28ff37832be00849851366813c7a8e6fdac4bc7a088b624b1',
-      hash_alg: '2.16.840.1.101.3.4.2.1',
-      document_title: 'Test PDF document',
-      document_subject: 'Testing sign with BankID',
-      document_language: 'en',
-      document_author: 'Daniel Kessl',
-      document_size: 9785,
-      document_pages: 1,
-      document_uri: 'http://localhost:3000/files/test.pdf',
-      document_created: '2018-12-29T10:46:53+01:00',
-      document_read_by_enduser: true,
-      sign_area: {
-        page: 0,
-        'x-coordinate': 350,
-        'y-coordinate': 150,
-        'x-dist': 140,
-        'y-dist': 50,
-      }
-    },
-  },
-})
 
 export const client = {
   /**
@@ -99,10 +51,10 @@ export const client = {
    * @param uploadUri upload_uri received from ROS EP response
    * @returns         void | error object
    */
-  upload: async function (uploadUri) {
-    const file = await fs.readFile(FILE_PATH)
+  upload: async function (uploadUri, fileName, filePath) {
+    const file = await fs.readFile(filePath)
     const data = new FormData()
-    data.append('file', file, { filename: FILENAME })
+    data.append('file', file, { filename: fileName })
 
     try {
       await Axios.post(uploadUri, data, { headers: data.getHeaders() })

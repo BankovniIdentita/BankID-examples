@@ -117,3 +117,5 @@ dist
 
 # generated keys
 keys
+
+.DS_Store

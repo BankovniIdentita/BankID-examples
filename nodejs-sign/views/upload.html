@@ -14,16 +14,18 @@
       <a>Callback</a>
     </nav>
 
-    <h2>Upload URI</h2>
-    <pre><%= uploadUri %></pre>
+    <h2>Upload URI(s)</h2>
 
-    <h2>Upload response</h2>
-    <pre><%= error ? JSON.stringify(error, null, 2) : '200 OK' %></pre>
+    <% for (const iterator of uploadResponses) { %>
+      <h2>Upload response</h2>
+      <pre><%= iterator.uploadUri %></pre>
+      <pre><%= iterator.error ? JSON.stringify(iterator.error, null, 2) : '200 OK' %></pre>
 
-    <% if (!error || error.code === 'FILE_ALREADY_UPLOADED') { %>
-      Continue to <a href="<%= authUri %>">authorization</a>
-    <% } else { %>
-      <a href="/ros">Start over</a>
+      <% if (!iterator.error || iterator?.error?.code === 'FILE_ALREADY_UPLOADED') { %>
+        Continue to <a href="<%= authUri %>">authorization</a>
+      <% } else { %>
+        <a href="/ros">Start over</a>
+      <% } %>
     <% } %>
   </body>
 </html>
