@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import { renderFile } from 'ejs'
 import express from 'express'
 import cookieParser from 'cookie-parser'
@@ -47,7 +48,7 @@ app.get('/ros', async (req, res) => {
 app.get('/upload/:uri/:uuids', async (req, res) => {
   const authUri = client.authUri(req.params.uri)
   const uploadResponses = await Promise.all(req.params.uuids.split(',').map(async (uuid) => {
-    const uploadUri = `https://api.bankid.cz/dev-portal-fileservice/api/v1/files/prepared/${uuid}`
+    const uploadUri = `${process.env.UPLOAD_BASE_URI}/dev-portal-fileservice/api/v1/files/prepared/${uuid}`
 
     const {fileName, filePath} = getDocumentNameAndPath(uploadUri, req.cookies)
     const response = await client.upload(uploadUri, fileName, filePath)

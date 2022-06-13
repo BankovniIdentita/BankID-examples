@@ -1,16 +1,19 @@
 // Update these values from sandbox credentials page on BankID developer portal
 // https://developer.bankid.cz
 
-export const CLIENT_ID = 'your-app-client-id'
-export const CLIENT_SECRET = 'your-app-client-secret'
+export const CLIENT_ID = process.env.CLIENT_ID || 'your-app-client-id'
+export const CLIENT_SECRET = process.env.CLIENT_SECRET || 'your-app-client-secret'
 
-// add http://localhost:3000/callback to your app's redirect URIs in dev portal
-export const REDIRECT_URI = 'http://localhost:3000/callback'
+// add https://localhost:3000/callback to your app's redirect URIs in dev portal
+export const REDIRECT_URI = 'https://localhost:3000/callback'
 
 // change issuer to https://oidc.bankid.cz/ for production
-export const BANKID_ISSUER = 'https://oidc.sandbox.bankid.cz/'
+export const BANKID_ISSUER = process.env.BANKID_ISSUER || 'https://oidc.sandbox.bankid.cz/'
 export const BANKID_JWKS = `${BANKID_ISSUER}.well-known/jwks`
 
 // filename & path to file to be signed
+// export const FILENAME = 'empty-strings-test.pdf'
+// export const FILENAME = 'bankid_5_page_document.pdf'
+// export const FILENAME = 'document_s_diakritikou.pdf'
 export const FILENAME = 'test.pdf'
 export const FILE_PATH = `./files/${FILENAME}`
