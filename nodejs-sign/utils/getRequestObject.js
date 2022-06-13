@@ -19,16 +19,16 @@ export const getRequestObject = () => {
     structured_scope: {
       signObject: {
         fields: [
-          {
-            key: 'Marketing consent - priority 1',
-            value: 'I consent to receive marketing materials - priority 1',
-            priority: 1,
-          },
-          {
-            key: 'Marketing consent - priority 2',
-            value: 'I consent to receive marketing materials - priority 2',
-            priority: 2,
-          },
+          // {
+          //   key: 'Marketing consent - priority 1',
+          //   value: 'I consent to receive marketing materials - priority 1',
+          //   priority: 1,
+          // },
+          // {
+          //   key: 'Marketing consent - priority 2',
+          //   value: 'I consent to receive marketing materials - priority 2',
+          //   priority: 2,
+          // },
 
           // // 255 key & 1024 value
           // {
@@ -40,7 +40,7 @@ export const getRequestObject = () => {
       },
 
       // documentObject data must match metadata of file being signed
-      documentObject: testDocumentObject,
+      // documentObject: testDocumentObject,
 
       // documentObject with empty author and subject
       // documentObject: emptyDocumentObject,
@@ -52,72 +52,80 @@ export const getRequestObject = () => {
       // documentObject: diacriticsDocumentObject,
 
       // multi-sign object data
-      // documentObjects: {
-      //   envelope_name: "this is envelope name",
-      //   documents: [
-      //     {
-      //       priority: 1,
-      //       ...testDocumentObject
-      //     },
-      //     {
-      //       priority: 2,
-      //       ...test2DocumentObject
-      //     },
-      //     {
-      //       priority: 3,
-      //       ...test3DocumentObject
-      //     },
-      //     {
-      //       priority: 4,
-      //       ...test4DocumentObject
-      //     },
-      //     {
-      //       priority: 5,
-      //       ...test5DocumentObject
-      //     },
-      //     {
-      //       priority: 6,
-      //       ...test6DocumentObject
-      //     },
-      //     {
-      //       priority: 7,
-      //       ...test7DocumentObject
-      //     },
-      //     {
-      //       priority: 8,
-      //       ...test8DocumentObject
-      //     },
-      //     {
-      //       priority: 9,
-      //       ...test9DocumentObject
-      //     },
-      //     {
-      //       priority: 10,
-      //       ...test10DocumentObject
-      //     },
-      //     // {
-      //     //   priority: 11,
-      //     //   ...fivePageDocumentObject
-      //     // },
-      //   ]
-      // },
+      documentObjects: {
+        envelope_name: "this is envelope name",
+        documents: [
+          {
+            priority: 1,
+            ...testDocumentObject
+          },
+          {
+            priority: 2,
+            ...emptyDocumentObject
+          },
+          // {
+          //   priority: 3,
+          //   ...test3DocumentObject
+          // },
+          // {
+          //   priority: 4,
+          //   ...test4DocumentObject
+          // },
+          // {
+          //   priority: 5,
+          //   ...test5DocumentObject
+          // },
+          // {
+          //   priority: 6,
+          //   ...test6DocumentObject
+          // },
+          // {
+          //   priority: 7,
+          //   ...test7DocumentObject
+          // },
+          // {
+          //   priority: 8,
+          //   ...test8DocumentObject
+          // },
+          // {
+          //   priority: 9,
+          //   ...test9DocumentObject
+          // },
+          // {
+          //   priority: 1000,
+          //   ...test10DocumentObject
+          // },
+          // {
+          //   priority: 10,
+          //   ...fivePageDocumentObject
+          // },
+          // {
+          //   priority: 10,
+          //   ...fivePageDocumentObject
+          // },
+          // {
+          //   priority: 10,
+          //   ...emptyDocumentObject
+          // },
+        ]
+      },
 
 
     },
   }
 
   // 20 times push same signObject as alredy exists in the object
-  // if (body.structured_scope.signObject.fields.length > 0) {
-  //   for (let i = 2; i <= 20; i++) {
-  //     body.structured_scope.signObject.fields.push(
-  //       {
-  //         key: `Marketing consent - priority ${i}`,
-  //         value: `I consent to receive marketing materials - priority ${i}`,
-  //         priority: i,
-  //       },
-  //     )
-  //   }
-  // }
+  if (body.structured_scope.signObject.fields.length > 0) {
+    for (let i = 2; i <= 20; i++) {
+      body.structured_scope.signObject.fields.push(
+        {
+          key: `Marketing consent - priority ${i}`,
+          value: `I consent to receive marketing materials - priority ${i}`,
+          priority: i,
+        },
+      )
+    }
+  }
 
   return body
 }

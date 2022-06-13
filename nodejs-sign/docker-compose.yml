@@ -1,0 +1,14 @@
+version: '3.1'
+
+services:
+  node:
+    build: .
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - 3000:3000
+    working_dir: /usr/src/app
+    environment:
+      - NODE_ENV=production
+    expose:
+      - "3000"
