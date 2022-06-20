@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>aspnet_sign</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="jose-jwt" Version="4.0.0" />
+      <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="6.0.6" />
+      <PackageReference Include="Microsoft.IdentityModel.Protocols" Version="6.19.0" />
+      <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="6.19.0" />
+      <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.19.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="test.pdf" />
+      <Content Include="example-pdf.pdf">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
+</Project>

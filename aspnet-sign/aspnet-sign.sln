@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aspnet-sign", "aspnet-sign.csproj", "{EDBF4522-107A-433C-9D71-71720F835BFF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EDBF4522-107A-433C-9D71-71720F835BFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDBF4522-107A-433C-9D71-71720F835BFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDBF4522-107A-433C-9D71-71720F835BFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDBF4522-107A-433C-9D71-71720F835BFF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
