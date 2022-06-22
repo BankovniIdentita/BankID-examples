@@ -1,0 +1,44 @@
+﻿@page
+@using System.Text.Json
+@model aspnet_sign.Pages.Index
+
+@{
+    Layout = null;
+    string? idToken = null;
+    
+    if(!string.IsNullOrEmpty(Model.IdTokenJson))
+    {
+        idToken = JsonSerializer.Serialize(JsonDocument.Parse(Model.IdTokenJson), new JsonSerializerOptions
+        {
+            WriteIndented = true
+        });
+    }
+}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet"
+          href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+</head>
+<body class="m-auto container px-4 py-4">
+<h1 class="text-3xl font-bold">
+    BankID Sign example with ASP.NET Core
+</h1>
+<a href="/sign" class="block my-1 text-blue-500">PDF sign example</a>
+<a href="/multi-sign" class="block my-1 text-blue-500">PDF sign example with multiple documents</a>
+
+@if (idToken != null)
+{
+    <pre>
+        <code class="language-json border border-gray-100 rounded bg-white">@Html.Raw(idToken)</code>
+    </pre>
+}
+
+<script>hljs.highlightAll();</script>
+</body>
+</html>

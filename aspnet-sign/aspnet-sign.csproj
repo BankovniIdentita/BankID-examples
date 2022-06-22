@@ -8,6 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="IronPdf" Version="2022.6.6115" />
       <PackageReference Include="jose-jwt" Version="4.0.0" />
       <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="6.0.6" />
       <PackageReference Include="Microsoft.IdentityModel.Protocols" Version="6.19.0" />
@@ -17,7 +18,60 @@
 
     <ItemGroup>
       <None Remove="test.pdf" />
-      <Content Include="example-pdf.pdf">
+      <None Remove="cert.pfx" />
+      <Content Include="cert.pfx">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="pdf-samples\test.pdf" />
+      <Content Include="pdf-samples\test.pdf">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="pdf-samples\test2.pdf" />
+      <Content Include="pdf-samples\test2.pdf">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="pdf-samples\bankid_5_page_document.pdf" />
+      <Content Include="pdf-samples\bankid_5_page_document.pdf">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="pdf-samples\document_with_diacritics.pdf" />
+      <Content Include="pdf-samples\document_with_diacritics.pdf">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="pdf-samples\empty-strings-test.pdf" />
+      <Content Include="pdf-samples\empty-strings-test.pdf">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="pdf-samples\test10.pdf" />
+      <Content Include="pdf-samples\test10.pdf">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="pdf-samples\test3.pdf" />
+      <Content Include="pdf-samples\test3.pdf">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="pdf-samples\test4.pdf" />
+      <Content Include="pdf-samples\test4.pdf">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="pdf-samples\test5.pdf" />
+      <Content Include="pdf-samples\test5.pdf">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="pdf-samples\test6.pdf" />
+      <Content Include="pdf-samples\test6.pdf">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="pdf-samples\test7.pdf" />
+      <Content Include="pdf-samples\test7.pdf">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="pdf-samples\test8.pdf" />
+      <Content Include="pdf-samples\test8.pdf">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="pdf-samples\test9.pdf" />
+      <Content Include="pdf-samples\test9.pdf">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
     </ItemGroup>
