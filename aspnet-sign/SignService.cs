@@ -30,7 +30,7 @@ public class SignService
         _logger = logger;
     }
 
-    private async Task<IDictionary<string, object>> GenerateDocumentClaims(DocumentDescriptor document, int priority)
+    private async Task<IDictionary<string, object>> PrepareDocumentClaims(DocumentDescriptor document, int priority)
     {
         using var sha = SHA256Managed.Create();
         await using var ms = new MemoryStream(document.Contents);
@@ -66,7 +66,7 @@ public class SignService
 
     public async Task<IDictionary<string, object>> PrepareRequestObject(Guid txId, SigningRequest request)
     {
-        var structuredScoreClaims = new Dictionary<string, object>
+        var structuredScopeClaims = new Dictionary<string, object>
         {
             {
                 "signObject", new Dictionary<string, object>
@@ -78,15 +78,15 @@ public class SignService
 
         if (request.DocumentObject != null)
         {
-            structuredScoreClaims["documentObject"] = await GenerateDocumentClaims(request.DocumentObject.Document, 0);
+            structuredScopeClaims["documentObject"] = await PrepareDocumentClaims(request.DocumentObject.Document, 0);
         }
 
         if (request.DocumentObjects != null)
         {
-            structuredScoreClaims["documentObjects"] = new Dictionary<string, object>
+            structuredScopeClaims["documentObjects"] = new Dictionary<string, object>
             {
                 { "envelope_name", request.DocumentObjects.EnvelopeName },
-                { "documents", await Task.WhenAll(request.DocumentObjects.Documents.Select(async (x, i) => await GenerateDocumentClaims(x, i + 1))) }
+                { "documents", await Task.WhenAll(request.DocumentObjects.Documents.Select(async (x, i) => await PrepareDocumentClaims(x, i + 1))) }
             };
         }
 
@@ -99,7 +99,7 @@ public class SignService
             { "max_age", 3600 },
             { "response_type", "code" },
             { "scope", "openid offline_access" },
-            { "structured_scope", structuredScoreClaims },
+            { "structured_scope", structuredScopeClaims },
         };
     }
 
