@@ -3,9 +3,12 @@
 This is an example of using [BankID](https://developer.bankid.cz/) with [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-6.0) to achieve signing of documents using the [BankID Sign API](https://developer.bankid.cz/docs/authorization_sep).
 
 - Example calls for Sign and Multi Sign are provided. Multi Sign allows you to sign multiple documents at once but has slightly different `structured_scope`.
+- Reads PDF metadata, embeds them into request object, signs/encrypts the request object, calls ROS EP, uploads documents and handles ID Token exchange
+- Contains helper endpoints for generating custom `cert.pfx` as well as transforming it to JWKS JSON
 - BankID Sign API requires use of Encrypted JWT (**JWE**) as well as signing JWTs issued by us using publicly accessible JSON Web Keys (**JWK**) that are registered in [BankID developer portal](https://developer.bankid.cz/). Please refer to section about configuring your own certificate for more info.
 - To get you started ASAP you can use the bundled `cert.pfx` certificate which has JWKS accessible at `https://pastebin.com/raw/5K2zeysF`
 - This example handles raw underlying JWT/JWE/JWK/OIDC instead of trying to shoehorn Sign into standard ASP.NET identity and authentication. This is mainly due to `structured_scope` and Request Object handling mandated by the BankID Sign API.
+- Uses Razor pages to render resulting ID Token
 
 ## Setup
 
