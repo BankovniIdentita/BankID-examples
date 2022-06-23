@@ -5,12 +5,13 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start:sign": "NODE_TLS_REJECT_UNAUTHORIZED=0 nodemon sign.js",
+    "start:sign": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 nodemon sign.js",
     "generate:keys": "node scripts/genKeys.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
     "cookie-parser": "^1.4.6",
+    "cross-env": "^7.0.3",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "form-data": "^4.0.0",
