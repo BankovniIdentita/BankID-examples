@@ -5,10 +5,9 @@ using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add HTTP client for fetching userinfo and profile
 builder.Services.AddHttpClient();
 
-// We need this to access OIDC configuration later to extract Profile endpoint address
+// We need this to access OIDC configuration later to extract OIDC endpoints, esp. Authorize endpoint
 var discoveryUri = new Uri(new Uri(builder.Configuration["BankID:Issuer"]), "/.well-known/openid-configuration");
 builder.Services.AddSingleton<IConfigurationManager<OpenIdConnectConfiguration>>(svc =>
     new ConfigurationManager<OpenIdConnectConfiguration>(
