@@ -12,7 +12,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "cookie-parser": "^1.4.5",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-session": "^1.17.1",
     "jsonwebtoken": "^8.5.1",
     "openid-client": "^4.7.3",
