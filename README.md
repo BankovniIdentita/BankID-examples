@@ -1,6 +1,6 @@
-# Czech BankID examples
+# Czech Bank iD examples
 
-This project is dedicated to code examples for integration on the [Czech BankID](https://www.bankid.cz) solution. Samples can be tested directly against the Sandbox, which is available through the BankID [Developer Portal](https://developer.bankid.cz).
+This project is dedicated to code examples for integration on the [Czech Bank iD](https://www.bankid.cz) solution. Samples can be tested directly against the Sandbox, which is available through the Bank iD [Developer Portal](https://developer.bankid.cz).
 
 Identity services make it easy to integrate authentication using the banks' identities involved in the project into the Service Provider's applications. The end-user can thus perform authentication using the same authentication means to access his bank's banking services.
 
@@ -21,3 +21,5 @@ We will gradually add examples in various programming languages to this reposito
 
 - [NodeJS-sign](/nodejs-sign) Server-side JavaScript example of end to end signing of a PDF document
 - [ASP.NET Core](/aspnet-sign)
+
+Example of Signing implementation is also available in Bank iD Demo repository.
