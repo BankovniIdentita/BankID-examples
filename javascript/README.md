@@ -1,4 +1,4 @@
-# BankID NodeJS code grant example
+# BankID NodeJS implicit grant flow example
 
 This is an example of using [BankID](https://developer.bankid.cz/) with client-side JavaScript and [OIDC Implicit Flow](https://openid.net/specs/openid-connect-core-1_0.html#ImplicitFlowAuth).
 
