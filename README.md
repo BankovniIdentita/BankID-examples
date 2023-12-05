@@ -21,5 +21,6 @@ We will gradually add examples in various programming languages to this reposito
 
 - [NodeJS-sign](/nodejs-sign) Server-side JavaScript example of end to end signing of a PDF document
 - [ASP.NET Core](/aspnet-sign)
+- [PHP](https://github.com/BankovniIdentita/bankid-php-client)
 
 Example of Signing implementation is also available in Bank iD Demo repository.
