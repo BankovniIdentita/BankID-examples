@@ -17,6 +17,9 @@ We will gradually add examples in various programming languages to this reposito
 - [Browser JavaScript](/javascript) Simple Implicit Flow using in-browser JavaScript. This flow uses Connect to login and later calls `/userinfo` EndPoint to acquire email of the end-user.
 - [PHP](/php) Discovery, authentication, token exchange and data transfer
 
+**External examples:**
+- [Online registration via Bank iD for Koha](https://gitlab.com/open-source-knihovna/online-registration-bank-id-for-koha) Plugin for Koha library software
+
 **Available Electronic Signature examples:**
 
 - [NodeJS-sign](/nodejs-sign) Server-side JavaScript example of end to end signing of a PDF document
