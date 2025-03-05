@@ -8,6 +8,8 @@ Identity services make it easy to integrate authentication using the banks' iden
 
 We will gradually add examples in various programming languages to this repository.
 
+**Please always check the implementation against [specs](https://github.com/BankovniIdentita/bankid-api-docs) in order to be fully compliant, some of our examples are old and not updated.**
+
 **Available Authentication examples:**
 
 - [CURL](/curl) Bare-bones shell example which uses CURL and other command line tools
