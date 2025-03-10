@@ -14,7 +14,7 @@
     "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "openid-client": "^4.7.3",
     "passport": "^0.4.1"
   }
